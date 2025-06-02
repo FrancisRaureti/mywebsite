@@ -1,5 +1,6 @@
 "use client"
 import { useState, FormEvent } from 'react';
+import Link from "next/link";
 
 export default function Contact() {
   
@@ -35,9 +36,9 @@ export default function Contact() {
           <nav className="container mx-auto flex space-x-8 justify-between items-center">
           <h1 className="text-3xl font-bold ">Francis Whanui Easton Raureti</h1>
             <ul className="flex space-x-6">
-              <li><a href="/" className="hover:text-blue-600">About</a></li>
-              <li><a href="/skills" className="hover:text-blue-600">Skills</a></li>
-              <li><a href="/contact" className="hover:text-blue-600 font-bold">Contact</a></li>
+              <Link href="/" className="hover:text-blue-600">About</Link>
+              <Link href="/skills" className="hover:text-blue-600">Skills</Link>
+              <Link href="/contact" className="hover:text-blue-600 font-bold">Contact</Link>
            </ul>
           </nav>
         </header>

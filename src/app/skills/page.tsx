@@ -13,6 +13,18 @@ export default function SkillsPage() {
     }));
   };
 
+interface Skill {
+  icon: string;
+  title: string;
+  description: string;
+  shortDescription: string;
+}
+
+interface Category {
+  title: string;
+  skills: Skill[];
+}
+
           const categories = [
             { title: "Programming Languages", skills: [
               { icon: "/oop.png", 
@@ -92,7 +104,7 @@ export default function SkillsPage() {
             <div key={catIndex} className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold mb-4">{category.title}</h2>
               <div className="grid grid-cols-1 gap-4">
-                {category.skills.map((skill: any, skillIndex: number) => {
+                {category.skills.map((skill: Skill, skillIndex: number) => {
                   const isExpanded = expandedSkillIndex[catIndex] === skillIndex;
 
                   return (

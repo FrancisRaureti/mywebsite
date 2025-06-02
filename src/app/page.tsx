@@ -10,7 +10,7 @@ export default function Home() {
     style={{ fontFamily: 'Figtree, sans-serif' }}
     >
       <Head>
-        <title>Francis Raureti's Personal Website</title>
+        <title>Francis Raureti&apos;s Personal Website</title>
         <meta name="description" content="Welcome to my personal website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -46,7 +46,7 @@ export default function Home() {
     {/* About Paragraphs */}
     <div className="space-y-6 text-lg max-w-2xl mx-auto text-left">
       <p>
-        I'm currently a Painter/Contractor but am looking to change fields into the tech industry. I have a BS in Computer Science, completed at the Victoria University of Wellington in 2021.
+        I&apos;m currently a Painter/Contractor but am looking to change fields into the tech industry. I have a BS in Computer Science, completed at the Victoria University of Wellington in 2021.
       </p>
       <p>
         I have a passion for software design and engineering and would like to make it a focus of my career.
@@ -61,7 +61,7 @@ export default function Home() {
       <h2 className="text-4xl font-semibold">History</h2>
       <p className="text-lg max-w-2xl mx-auto text-left">
         I finished college in 2011 at Horowhenua College in Levin, where I worked part-time at the local Mitre 10.
-        After graduating, I moved to full-time work and used my earnings to fund overseas trips to Europe and Australia. During that time, I earned a manager’s position overseeing the paint, electrical, and seasonal departments.
+        After graduating, I moved to full-time work and used my earnings to fund overseas trips to Europe and Australia. During that time, I earned a manager&apos;s position overseeing the paint, electrical, and seasonal departments.
         <br /><br />
         In 2016, I felt I could be doing more and enrolled at Victoria University to study Computer Science. I worked part-time for Resene Paints Ltd in Wellington throughout my studies until shortly after graduating.
         Due to a back injury from sitting for long hours, I transitioned into a more physical role with Paragon Painting Contractors.
