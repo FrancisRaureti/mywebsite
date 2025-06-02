@@ -1,7 +1,18 @@
-"use client"
-import { useState } from "react";
-        
-        export default function Skills() {
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+
+export default function SkillsPage() {
+  const [expandedSkillIndex, setExpandedSkillIndex] = useState<{ [key: number]: number | null }>({});
+
+  const toggleExpanded = (categoryIndex: number, skillIndex: number) => {
+    setExpandedSkillIndex((prev) => ({
+      ...prev,
+      [categoryIndex]: prev[categoryIndex] === skillIndex ? null : skillIndex,
+    }));
+  };
+
           const categories = [
             { title: "Programming Languages", skills: [
               { icon: "/oop.png", 
@@ -58,49 +69,62 @@ import { useState } from "react";
                   description: "Practice makes perfect.\n Learning an instrument is a very good way to humble yourself. It takes time and dedication to master the fingerings and chords. Let alone to perform the song in one go in front of an audience with near perfect precision. It takes dedication and practice to learn even simple songs from knowing nothing about an instrument and the learning curve only gets steeper. after 15 years of practising I'm happy to still have much more to learn.  ", 
                   shortDescription: "Persistence" }   
             ]}];
+
+
           
-            return (
-                
-                <div style={{ fontFamily: 'Figtree, sans-serif' }}>
-                <header className="p-6 bg-white shadow-md w-full">
-                  <nav className="container mx-auto flex justify-between items-center">
-                    <h1 className="text-3xl font-bold">Francis Whanui Easton Raureti</h1>
-                    <ul className="flex space-x-6">
-                      <li><a href="/" className="hover:text-blue-600">About</a></li>
-                      <li><a href="/skills" className="hover:text-blue-600 font-bold">Skills</a></li>
-                      <li><a href="/contact" className="hover:text-blue-600">Contact</a></li>
-                    </ul>
-                  </nav>
-                </header>
-                <div className="min-h-screen bg-gray-100 text-gray-900 p-8" >
-                <main className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {categories.map((category, index) => (
-                    <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                      <h2 className="text-2xl font-semibold mb-4">{category.title}</h2>
-                      <div className="grid grid-cols-1 gap-4">
-                        {category.skills.map((skill, idx) => {
-                          const [expanded, setExpanded] = useState(false);
-                          return (
-                            <div key={idx} className="flex flex-col items-center space-y-3 p-3 border rounded-lg shadow-sm text-center bg-gray-100">
-                              <img src={skill.icon} alt={skill.title} className="w-20 h-20 mb-2" />
-                              <h3 className="font-medium text-lg">{skill.title}</h3>
-                              <p className={`text-sm text-gray-600 ${expanded ? "text-left" : "text-center"}`} 
-                                 style={{ whiteSpace: "pre-line" }}> 
-                                 {expanded ? skill.description : skill.shortDescription}
-                              </p>
-                              <button 
-                                onClick={() => setExpanded(!expanded)} 
-                                className="text-blue-600 text-sm font-semibold hover:underline">
-                                {expanded ? "Show Less" : "More"}
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
+
+  return (
+    <div style={{ fontFamily: 'Figtree, sans-serif' }}>
+      <header className="p-6 bg-white shadow-md w-full">
+        <nav className="container mx-auto flex justify-between items-center">
+          <h1 className="text-3xl font-bold">Francis Whanui Easton Raureti</h1>
+          <ul className="flex space-x-6">
+            <li><Link href="/" className="hover:text-blue-600">About</Link></li>
+            <li><Link href="/skills" className="hover:text-blue-600 font-bold">Skills</Link></li>
+            <li><Link href="/contact" className="hover:text-blue-600">Contact</Link></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div className="min-h-screen bg-gray-100 text-gray-900 p-8">
+        <main className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {categories.map((category, catIndex) => (
+            <div key={catIndex} className="bg-white p-6 rounded-lg shadow-md">
+              <h2 className="text-2xl font-semibold mb-4">{category.title}</h2>
+              <div className="grid grid-cols-1 gap-4">
+                {category.skills.map((skill: any, skillIndex: number) => {
+                  const isExpanded = expandedSkillIndex[catIndex] === skillIndex;
+
+                  return (
+                    <div key={skillIndex} className="flex flex-col items-center space-y-3 p-3 border rounded-lg shadow-sm text-center bg-gray-100">
+                      <Image
+                        src={skill.icon}
+                        alt={skill.title}
+                        width={80}
+                        height={80}
+                        className="mb-2"
+                      />
+                      <h3 className="font-medium text-lg">{skill.title}</h3>
+                      <p
+                        className={`text-sm text-gray-600 ${isExpanded ? 'text-left' : 'text-center'}`}
+                        style={{ whiteSpace: 'pre-line' }}
+                      >
+                        {isExpanded ? skill.description : skill.shortDescription}
+                      </p>
+                      <button
+                        onClick={() => toggleExpanded(catIndex, skillIndex)}
+                        className="text-blue-600 text-sm font-semibold hover:underline"
+                      >
+                        {isExpanded ? 'Show Less' : 'More'}
+                      </button>
                     </div>
-                  ))}
-                </main>
+                  );
+                })}
               </div>
-              </div> 
-            );
+            </div>
+          ))}
+        </main>
+      </div>
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
 
 import Head from 'next/head';
 import Image from 'next/image';
-
+import Link from 'next/link';
 export default function Home() {
 
 
@@ -19,9 +19,9 @@ export default function Home() {
         <nav className="container mx-auto flex space-x-8 justify-between items-center">
           <h1 className="text-3xl font-bold ">Francis Whanui Easton Raureti</h1>
           <ul className="flex space-x-6">
-            <li><a href="/" className="hover:text-blue-600 font-bold">About</a></li>
-            <li><a href="/skills" className="hover:text-blue-600">Skills</a></li>
-            <li><a href="/contact" className="hover:text-blue-600">Contact</a></li>
+            <Link href="/" className="hover:text-blue-600 font-bold">About</Link>
+            <Link href="/skills" className="hover:text-blue-600">Skills</Link>
+            <Link href="/contact" className="hover:text-blue-600">Contact</Link>
           </ul>
         </nav>
       </header>
