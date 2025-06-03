@@ -20,10 +20,6 @@ interface Skill {
   shortDescription: string;
 }
 
-interface Category {
-  title: string;
-  skills: Skill[];
-}
 
           const categories = [
             { title: "Programming Languages", skills: [
