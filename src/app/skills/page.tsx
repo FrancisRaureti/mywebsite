@@ -23,7 +23,7 @@ interface Skill {
 
           const categories = [
             { title: "Programming Languages", skills: [
-              { icon: "/oop.png", 
+              { icon: "/OOP.png", 
                 title: "Object Oriented Programming", 
                 description: "My main programming experience lies in object oriented programming, many of my assignments at university were in some sort of OOP.\n My early data structures and algorithms classes were in Java, my elecrical engineering classes involved programming in C#.\n My later web design and software development classes involved a lot of typescript, as well as this website youre currently on!\n My side projects in unity have given me some practice with C++. Altogether I have a strong understanding of inheritance, abstraction, encapsulation and polymorphism", 
                 shortDescription: "Java, C++, C#, Typescript" },
